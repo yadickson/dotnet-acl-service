@@ -1,0 +1,16 @@
+**/TestResults/
+**/bin/
+**/obj/
+**/*.txt
+**/*.json
+**/*.yml
+**/*.properties
+**/*.Tests/
+.env
+.config/
+reports/
+coverage/
+.scannerwork/
+StrykerOutput/
+Dockerfile
+README.md

@@ -1,0 +1,65 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Acl.Authentication.Service.Api.Tests</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.9.2" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.9.2" />
+    <PackageReference Include="Microsoft.CodeCoverage" Version="17.10.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
+    <PackageReference Include="Microsoft.TestPlatform.TestHost" Version="17.10.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.4.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.4.0" />
+    <PackageReference Include="Moq" Version="4.20.70" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.5" />
+    <PackageReference Include="MyTested.AspNetCore.Mvc" Version="8.0.0" />
+    <PackageReference Include="MyTested.AspNetCore.Mvc.Universe" Version="8.0.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Razor" Version="6.0.30" />
+    <PackageReference Include="Bogus" Version="35.5.1" />
+    <PackageReference Include="coverlet.msbuild" Version="6.0.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Acl.Authentication.Service\Acl.Authentication.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers/" />
+    <Folder Include="Services/" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <CollectCoverage>true</CollectCoverage>
+    <CoverletOutput>../coverage/</CoverletOutput>
+    <CoverletOutputFormat>cobertura,lcov,opencover,json</CoverletOutputFormat>
+    <Exclude>[*.Tests]*</Exclude>
+    <ExcludeByFile>**/Program.cs</ExcludeByFile>
+    <Threshold>100,100,100</Threshold>
+    <ThresholdType>line,branch,method</ThresholdType>
+  </PropertyGroup>
+
+  <Target Name="PostClean" AfterTargets="Clean">
+    <RemoveDir Directories="$(BaseIntermediateOutputPath)" />
+    <RemoveDir Directories="$(BaseOutputPath)" />
+  </Target>
+
+</Project>

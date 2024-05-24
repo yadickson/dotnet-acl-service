@@ -1,0 +1,18 @@
+services:
+
+  Acl.Authentication.Service:
+    hostname: Acl.Authentication.Service
+    container_name: Acl.Authentication.Service
+    image: Acl.Authentication.Service:1.0.0
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    environment:
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_PrefixApiPathBase=${PREFIX_API_PATH_BASE}
+      - ASPNETCORE_AllowedHosts=${ALLOWED_HOSTS}
+      - ASPNETCORE_ConnectionStrings__AuthenticationDatabase=${CONNECTION_STRING_AUTHENTICATION_DATABASE}
+    ports:
+      - '10000:8080'
+
+# docker-compose stop Acl.Authentication.Service && docker-compose rm -f Acl.Authentication.Service && docker-compose build --no-cache Acl.Authentication.Service && docker-compose up Acl.Authentication.Service

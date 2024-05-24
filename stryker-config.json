@@ -1,0 +1,17 @@
+{
+    "stryker-config":
+    {
+        "reporters": [
+            "html",
+            "cleartext"
+        ],
+        "thresholds": { 
+            "high": 100, 
+            "low": 100, 
+            "break": 100 
+        },
+        "coverage-analysis": "perTest",
+        "concurrency": 1
+    }
+}
+
